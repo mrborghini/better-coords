@@ -1,4 +1,4 @@
-package mrborghini.bettercords.mixin.client;
+package mrborghini.bettercoords.mixin.client;
 
 import net.minecraft.client.MinecraftClient;
 import org.spongepowered.asm.mixin.Mixin;

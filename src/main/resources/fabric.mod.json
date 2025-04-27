@@ -1,8 +1,8 @@
 {
 	"schemaVersion": 1,
-	"id": "better-cords",
+	"id": "better-coords",
 	"version": "${version}",
-	"name": "Better cords",
+	"name": "Better coords",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
 		"Me!"
@@ -12,20 +12,20 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/better-cords/icon.png",
+	"icon": "assets/better-coords/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"mrborghini.bettercords.BetterCords"
+			"mrborghini.bettercoords.BetterCoords"
 		],
 		"client": [
-			"mrborghini.bettercords.BetterCordsClient"
+			"mrborghini.bettercoords.BetterCoordsClient"
 		]
 	},
 	"mixins": [
-		"better-cords.mixins.json",
+		"better-coords.mixins.json",
 		{
-			"config": "better-cords.client.mixins.json",
+			"config": "better-coords.client.mixins.json",
 			"environment": "client"
 		}
 	],

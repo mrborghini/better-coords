@@ -22,7 +22,7 @@ loom {
 	splitEnvironmentSourceSets()
 
 	mods {
-		"better-cords" {
+		"better-coords" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}

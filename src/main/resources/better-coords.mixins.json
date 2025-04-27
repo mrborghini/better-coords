@@ -1,9 +1,9 @@
 {
 	"required": true,
-	"package": "mrborghini.bettercords.mixin.client",
+	"package": "mrborghini.bettercoords.mixin",
 	"compatibilityLevel": "JAVA_21",
-	"client": [
-		"ExampleClientMixin"
+	"mixins": [
+		"ExampleMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
