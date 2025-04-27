@@ -69,7 +69,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.APP_NAME }}-${{ env.APP_VERSION }}.jar
+          name: bin
           path: artifacts/
 
   release:
@@ -87,11 +87,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Download x86_64 Linux artifact
+      - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: ${{ env.APP_NAME }}-${{ env.APP_VERSION }}.jar
-          path: ./${{ env.APP_NAME }}-${{ env.APP_VERSION }}.jar
+          name: bin
+          path: bin
 
       - name: Install GitHub CLI
         run: sudo apt-get install -y gh
@@ -99,6 +99,6 @@ jobs:
       - name: Create GitHub Release
         run: |
           gh release create v${{ env.APP_VERSION }} \
-          ./${{ env.APP_NAME }}-${{ env.APP_VERSION }}.jar \
+          ./bin/${{ env.APP_NAME }}-${{ env.APP_VERSION }}.jar \
           --title "Release ${{ env.APP_VERSION }} for Minecraft ${{ env.MC_VERSION }}" \
           --notes "Automated release"
