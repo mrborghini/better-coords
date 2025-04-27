@@ -4,7 +4,7 @@
 # against bad commits.
 
 name: build
-on: [pull_request, push]
+on: [push]
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -60,11 +60,17 @@ jobs:
         run: chmod +x ./gradlew
       - name: build
         run: ./gradlew build
-      - name: capture build artifacts
+
+      - name: Create release artifact
+        run: |
+          mkdir -p artifacts
+          cp build/libs/${{ env.APP_NAME }}-${{ env.APP_VERSION }}.jar artifacts/${{ env.APP_NAME }}-${{ env.APP_VERSION }}.jar
+
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Artifacts
-          path: build/libs/${{ env.APP_NAME }}-${{ env.APP_VERSION }}.jar
+          name: ${{ env.APP_NAME }}-${{ env.APP_VERSION }}.jar
+          path: artifacts/
 
   release:
     needs:
